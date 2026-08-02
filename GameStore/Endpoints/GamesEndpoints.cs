@@ -11,23 +11,6 @@ namespace GameStore.Endpoints
     {
         const string GetGameEndpointName = "GetGame";
 
-        private static readonly List<GameSummaryDto> games = [
-        new (1,
-        "Street Fighter II",
-        "Fighting",
-        19.99M ,
-        new DateOnly(1992, 7, 15)),
-        new (2,
-        "Mario Kart",
-        "Racing",
-        29.99M ,
-        new DateOnly(2015, 5, 20)),
-        new (3,
-        "Astrobot",
-        "Platformer",
-        49.99M ,
-        new DateOnly(2024, 6, 7)),
-        ];
 
         public static void MapGamesEndpoints(this WebApplication app)
         {
@@ -101,15 +84,21 @@ namespace GameStore.Endpoints
                 }
 
                 existingGame.Name = updatedGame.Name;
-                existingGame.GenreId = updatedGame.Genre;
+                existingGame.GenreId = updatedGame.GenreId;
+                existingGame.Price = updatedGame.Price;
+                existingGame.ReleaseDate = updatedGame.ReleaseDate;
+
+                await dbContext.SaveChangesAsync();
 
                 return Results.NoContent();
             });
 
             //DELETE /games/1
-            group.MapDelete("/{id}", (int id) =>
+            group.MapDelete("/{id}", async (int id, GameStoreContext dbContext) =>
             {
-                games.RemoveAll(game => game.Id == id);
+                await dbContext.Games
+                                .Where(game => game.Id == id)
+                                .ExecuteDeleteAsync();
 
                 return Results.NoContent();
             });

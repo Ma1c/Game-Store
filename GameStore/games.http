@@ -3,29 +3,33 @@
 GET http://localhost:5143/games
 
 ###
-GET http://localhost:5143/games/1
+GET http://localhost:5143/games/3
 
 ###
 POST http://localhost:5143/games
 Content-Type: application/json
 
 {
-  "name": "Grand Theft Auto VI",
+  "name": "Grand Theft Auto V",
   "genreId": 1,
-  "price": 59.89,
+  "price": 159.89,
   "releaseDate": "2026-11-19"
 }
 
 
 ###
-PUT http://localhost:5143/games/1
+PUT http://localhost:5143/games/3
 Content-Type: application/json
+
 {
-    "name": "Grand Theft Auto VI",
-  "genreId": 1,
-  "price": 59.89,
+  "name": "Grand Theft Auto VI",
+  "genreId": 2,
+  "price": 89.89,
   "releaseDate": "2026-11-19"
 }
 
 ###
-DELETE http://localhost:5143/games/1
+DELETE http://localhost:5143/games/4
+
+###
+GET http://localhost:5143/genres
