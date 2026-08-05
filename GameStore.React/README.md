@@ -1,32 +1,39 @@
-# React + TypeScript + Vite
+# Game Store React Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A simple React application for managing games with basic CRUD operations.
 
-Currently, two official plugins are available:
+## Features
+- View games in a table format
+- Add new games
+- Edit existing games
+- Delete games
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Prerequisites
+- Node.js (v18+ recommended)
+- Game Store API running on http://localhost:5274
 
-## React Compiler
+## Setup
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-## Expanding the Oxlint configuration
+3. Open http://localhost:5173 in your browser
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+## Docker Deployment
+Build the Docker image:
+```bash
+docker build -t gamestore-react .
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Technology Stack
+- React 18
+- TypeScript
+- Bootstrap 5
+- Vite
+- React Router
