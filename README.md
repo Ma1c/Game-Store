@@ -39,20 +39,20 @@ The project provides a simple interface for managing games through a RESTful API
 ### Clone the repository
 
 ```bash
-git clone <repository-url>
-cd <project-folder>
+git clone <https://github.com/Ma1c/Game-Store/>
 ```
 
 ### Start the backend
 
 ```bash
-dotnet restore
+cd GameStore
 dotnet run
 ```
 
 ### Start the frontend
 
 ```bash
+cd GameStore.React
 npm install
 npm start
 ```
